@@ -16,6 +16,14 @@
         div = message 
 
   div
+    = form.label :password_confirmation 
+    br
+    = form.password_field :password_confirmation 
+    br
+      - user.errors.full_messages_for(:password_confirmation).each do |message| 
+        div = message 
+
+  div
     = form.label :first_name 
     br
     = form.text_field :first_name 

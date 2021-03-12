@@ -1,3 +1,5 @@
+= render "home/header"
+
 h1 #{@league.name}
 p Welcome to the #{@league.name}. We love #{@league.sport}!
 p League manager: #{link_to @league.user.username, @league.user}

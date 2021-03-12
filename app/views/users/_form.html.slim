@@ -40,4 +40,12 @@
         div = message 
   
   div
+    = form.label :email 
+    br
+    = form.email_field :email 
+    br  
+      - user.errors.full_messages_for(:email).each do |message| 
+        div = message 
+
+  div
     = form.submit 

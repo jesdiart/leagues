@@ -5,4 +5,5 @@ class User < ApplicationRecord
     validates :last_name, presence: true
     validates :password, presence: true
     validates :password, confirmation: { case_sensitive: true }
+    validates :email, presence: true
 end

@@ -1,0 +1,28 @@
+= form_with model: league do |form|
+
+  div
+    = form.label :name 
+    br
+    = form.text_field :name 
+    br  
+      - league.errors.full_messages_for(:name).each do |message| 
+        div = message 
+
+  div
+    = form.label :sport 
+    br
+    = form.select :sport, ['Football', 'Rugby', 'Basketball', 'Handball', 'Hockey', 'Volleyball', 'Cricket']
+    br
+      - league.errors.full_messages_for(:sport).each do |message| 
+        div = message 
+
+  div
+    = form.label :manager_username 
+    br
+    = form.text_field :manager_username 
+    br  
+      - league.errors.full_messages_for(:manager_username).each do |message| 
+        div = message 
+  
+  div
+    = form.submit 

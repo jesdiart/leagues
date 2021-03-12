@@ -1,0 +1,10 @@
+#header.header style="overflow: hidden; padding: 10px; background:#555; color: #f1f1f1;"
+  .left style="float:left;"
+    h2 Leagues Manager
+  .right style="float:right;"
+    p #{link_to "Register", new_user_path} | Login 
+
+#content.content
+  h2 Leagues 
+  = render "leagues/list", leagues: @leagues
+

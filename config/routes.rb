@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "leagues#index"
+  root "home#index"
   
   resources :users
   resources :leagues

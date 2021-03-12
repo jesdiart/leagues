@@ -14,8 +14,8 @@ class LeaguesController < ApplicationController
 
   def create
     @user = User.find_by(username: league_params[:manager_username])
-    new_league_params = league_params.except(:manager_username)
-    new_league_params[:manager_id] = @user.id
+    new_league_params = league_params
+    new_league_params[:manager_id] = current_user.id
     @league = League.new(new_league_params)
 
     if @league.save
@@ -31,11 +31,9 @@ class LeaguesController < ApplicationController
 
   def update
     @league = League.find(params[:id])
-    @user = User.find_by(username: league_params[:manager_username])
-    edit_league_params = league_params.except(:manager_username)
-    edit_league_params[:manager_id] = @user.id unless @user.nil?
+    league_params[:manager_id] = current_user.id
 
-    if @league.update(edit_league_params)
+    if @league.update(league_params)
       redirect_to @league
     else
       render :edit

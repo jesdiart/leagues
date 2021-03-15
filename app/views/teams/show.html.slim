@@ -1,6 +1,9 @@
 = render "home/header"
 
 h1 #{@team.name}
+- unless @team.icon.nil?
+  img src="#{@team.icon}" alt="#{@team.name}" width="300px" style="float:right; margin-right: 100px;"
+
 p This is the page of the team #{@team.name}, member of the #{@team.league.name}
 p Team coordinator: #{link_to @team.user.username, @team.user}
 h2 Options

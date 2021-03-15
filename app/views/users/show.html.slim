@@ -14,7 +14,7 @@ p Email: #{@user.email}
   = render "teams/list", teams: @user.teams
 
 
-- if logged_in? && current_user.id == @user.id  
+- if logged_in? && is_logged_in_user?(@user.id)
   h2 Options
   ul 
     li = link_to "Edit", edit_user_path

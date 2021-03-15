@@ -13,7 +13,7 @@ h2 Teams
 - if logged_in? && current_user.id == @league.manager_id  
   p #{link_to "Add new Team", new_league_team_path(@league)}
 
-- if logged_in? && current_user.id == @league.manager_id  
+- if logged_in? && is_logged_in_user?(@league.manager_id)
   h2 Options
   ul 
     li = link_to "Edit", edit_league_path 

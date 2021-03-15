@@ -17,12 +17,8 @@
         div = message 
   
   div
-    = form.label :coordinator 
-    br
-    = form.text_field :coordinator
-    br
-      - team.errors.full_messages_for(:coordinator).each do |message| 
-        div = message 
-  
+    = collection_select :team, :coordinator_id, User.all, :id, :username, prompt: true
+  br
+    
   div
     = form.submit 

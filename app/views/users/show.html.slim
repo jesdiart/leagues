@@ -1,8 +1,18 @@
 = render "home/header"
 
-h1 User: #{@user.username}
-h2 Name: #{@user.first_name} #{@user.last_name}
-h2 Email: #{@user.email}
+h1 #{@user.username}
+h2 Info
+p Name: #{@user.first_name} #{@user.last_name}
+p Email: #{@user.email}
+
+- unless @user.leagues.empty?
+  h2 Leagues 
+  = render "leagues/list", leagues: @user.leagues
+
+- unless @user.teams.empty?
+  h2 Teams 
+  = render "teams/list", teams: @user.teams
+
 h2 Options
 ul 
   li = link_to "Edit", edit_user_path

@@ -20,6 +20,17 @@ class TeamsController < ApplicationController
     @league = League.find(params[:league_id])
     @team = Team.find(params[:id])
   end
+
+  def update
+    @league = League.find(params[:id])
+    @team = Team.find(params[:id])
+
+    if @team.update(team_params)
+      redirect_to league_team_path(@team)
+    else
+      render :edit
+    end
+  end
     
   def destroy
     @league = League.find(params[:league_id])

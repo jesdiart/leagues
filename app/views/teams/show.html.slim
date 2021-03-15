@@ -6,7 +6,9 @@ h1 #{@team.name}
 
 p This is the page of the team #{@team.name}, member of the #{@team.league.name}
 p Team coordinator: #{link_to @team.user.username, @team.user}
-h2 Options
-ul 
-  li = link_to "Edit", edit_league_team_path
+
+- if logged_in? && current_user.id == @team.coordinator_id  
+  h2 Options
+  ul 
+    li = link_to "Edit", edit_league_team_path
 

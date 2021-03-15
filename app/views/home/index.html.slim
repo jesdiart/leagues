@@ -7,5 +7,6 @@
 - else 
   = render "leagues/list", leagues: @leagues
 br
-= link_to "New League", new_league_path
+- if logged_in?
+  = link_to "New League", new_league_path 
 

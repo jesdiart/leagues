@@ -9,9 +9,12 @@ h2 Teams
   p There are no teams in the league yet
 - else 
   = render "teams/list", teams: @league.teams
-p #{link_to "Add new Team", new_league_team_path(@league)}
 
-h2 Options
-ul 
-  li = link_to "Edit", edit_league_path
+- if logged_in? && current_user.id == @league.manager_id  
+  p #{link_to "Add new Team", new_league_team_path(@league)}
+
+- if logged_in? && current_user.id == @league.manager_id  
+  h2 Options
+  ul 
+    li = link_to "Edit", edit_league_path 
 

@@ -13,7 +13,9 @@ p Email: #{@user.email}
   h2 Teams 
   = render "teams/list", teams: @user.teams
 
-h2 Options
-ul 
-  li = link_to "Edit", edit_user_path
+
+- if logged_in? && current_user.id == @user.id  
+  h2 Options
+  ul 
+    li = link_to "Edit", edit_user_path
 

@@ -17,6 +17,8 @@
         div = message 
   
   div
+    = form.label :coordinator
+    br
     = collection_select :team, :coordinator_id, User.all, :id, :username, prompt: true
   br
     

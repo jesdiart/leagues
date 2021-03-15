@@ -1,0 +1,28 @@
+= form_with model: [ @league, @team ] do |form|
+
+  div
+    = form.label :name 
+    br
+    = form.text_field :name 
+    br  
+      - team.errors.full_messages_for(:name).each do |message| 
+        div = message 
+
+  div
+    = form.label :icon 
+    br
+    = form.text_field :icon
+    br
+      - team.errors.full_messages_for(:icon).each do |message| 
+        div = message 
+  
+  div
+    = form.label :coordinator 
+    br
+    = form.text_field :coordinator
+    br
+      - team.errors.full_messages_for(:coordinator).each do |message| 
+        div = message 
+  
+  div
+    = form.submit 

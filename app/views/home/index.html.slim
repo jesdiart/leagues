@@ -2,7 +2,10 @@
 
 #content.content
   h2 Leagues 
+- if @leagues.empty? 
+  p There are no leagues yet
+- else 
   = render "leagues/list", leagues: @leagues
-  br
-  = link_to "New League", new_league_path
+br
+= link_to "New League", new_league_path
 

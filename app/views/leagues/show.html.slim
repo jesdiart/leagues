@@ -4,8 +4,11 @@ h1 #{@league.name}
 p Welcome to the #{@league.name}. We love #{@league.sport}!
 p League manager: #{link_to @league.user.username, @league.user}
 
-h2 Teams
-= render "teams/list", teams: @league.teams
+h2 Teams 
+- if @league.teams.empty? 
+  p There are no teams in the league yet
+- else 
+  = render "teams/list", teams: @league.teams
 p #{link_to "Add new Team", new_league_team_path(@league)}
 
 h2 Options

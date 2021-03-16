@@ -6,4 +6,17 @@ class User < ApplicationRecord
     validates :username, presence: true
     validates :password, presence: true
     validates :password, confirmation: { case_sensitive: true }
+
+    def first_name
+        player.first_name
+      end
+  
+    def last_name
+      player.last_name
+    end
+    
+    def email
+        player.email
+    end    
+      
 end

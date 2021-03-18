@@ -1,9 +1,7 @@
 = render "home/header"
 
 h1 #{@user.username}
-h2 Info
-p Name: #{@user.first_name} #{@user.last_name}
-p Email: #{@user.email}
+= render "players/player", player: @user.player
 
 - unless @user.leagues.empty?
   h2 Leagues 

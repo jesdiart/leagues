@@ -9,10 +9,14 @@ class User < ApplicationRecord
 
     def first_name
         player.first_name
-      end
+    end
   
     def last_name
       player.last_name
+    end
+
+    def full_name
+        player.full_name
     end
     
     def email

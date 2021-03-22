@@ -23,29 +23,38 @@
       - user.errors.full_messages_for(:password_confirmation).each do |message| 
         div = message 
 
-  div
-    = form.label :first_name 
-    br
-    = form.text_field :first_name 
-    br
-      - user.errors.full_messages_for(:first_name).each do |message| 
-        div = message 
-  
-  div
-    = form.label :last_name 
-    br
-    = form.text_field :last_name 
-    br
-      - user.errors.full_messages_for(:last_name).each do |message| 
-        div = message 
-  
-  div
-    = form.label :email 
-    br
-    = form.email_field :email 
-    br  
-      - user.errors.full_messages_for(:email).each do |message| 
-        div = message 
+  = form.fields_for :player, @user.player do |p| 
+    div
+      = p.label :first_name 
+      br
+      = p.text_field :first_name 
+      br
+        - user.errors.full_messages_for(:first_name).each do |message| 
+          div = message 
+    
+    div
+      = p.label :last_name 
+      br
+      = p.text_field :last_name 
+      br
+        - user.errors.full_messages_for(:last_name).each do |message| 
+          div = message 
+    
+    div
+      = p.label :email 
+      br
+      = p.email_field :email 
+      br  
+        - user.errors.full_messages_for(:email).each do |message| 
+          div = message 
+    
+    div
+      = p.label :photo 
+      br
+      = p.text_field :photo 
+      br  
+        - user.errors.full_messages_for(:photo).each do |message| 
+          div = message 
 
   div
     = form.submit 

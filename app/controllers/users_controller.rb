@@ -10,12 +10,13 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_player
   end
 
   def create
     @user = User.new(user_params)
     session[:user_id] = @user.id
-
+    
     if @user.save
       redirect_to root_path
     else
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :email)
+      params.require(:user).permit(:username, :password, :password_confirmation, player_attributes: [:id, :first_name, :last_name, :email, :photo])
     end
 
 end

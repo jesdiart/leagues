@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :players
   resources :leagues do
-    resources :teams
+    resources :teams do 
+      resources :players, :controller => "team_players"
+    end
   end 
 
   get 'login', to: 'sessions#new'

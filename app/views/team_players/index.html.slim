@@ -1,0 +1,7 @@
+= render "home/header"
+
+h1 #{@team.name} - Players
+- if @players.empty?
+  p No players 
+- else 
+  = render "players/list", players: @players

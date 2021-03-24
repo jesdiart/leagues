@@ -33,6 +33,14 @@ class TeamPlayersController < ApplicationController
     redirect_to league_team_path(@league, @team)
   end
 
+  def destroy
+    @league = League.find(params[:league_id])
+    @team = Team.find(params[:team_id])
+    @team_player = TeamPlayer.find_by(player_id: params[:id])
+    @team_player.destroy!
+    redirect_to league_team_path(@league, @team)
+  end
+
   private
     def player_params
       params.require(:player).permit(:player_id, :first_name, :last_name, :email, :photo)

@@ -12,10 +12,22 @@ class TeamPlayersController < ApplicationController
     @team_player = TeamPlayer.new
   end
 
+  def assign
+    @league = League.find(params[:league_id])
+    @team = Team.find(params[:team_id])
+    @player = Player.new
+    @team_player = TeamPlayer.new
+  end
+
   def create
     @league = League.find(params[:league_id])
     @team = Team.find(params[:team_id])
-    @player = Player.create!(player_params)
+    if (player_params.has_key?(:player_id))
+      @player = Player.find(player_params[:player_id])
+    else 
+      @player = Player.create!(player_params)
+    end
+    
     @team_player = TeamPlayer.create!(team_id: @team.id, player_id: @player.id)
     
     redirect_to league_team_path(@league, @team)
@@ -23,7 +35,7 @@ class TeamPlayersController < ApplicationController
 
   private
     def player_params
-      params.require(:player).permit(:first_name, :last_name, :email, :photo)
+      params.require(:player).permit(:player_id, :first_name, :last_name, :email, :photo)
     end
 
 end

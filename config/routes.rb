@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :players
   resources :leagues do
     resources :teams do 
-      resources :players, :controller => "team_players"
+      resources :players, :controller => "team_players" do
+        get 'assign', on: :collection
+      end
     end
   end 
 

@@ -11,7 +11,7 @@ h2 Players
 - if @team.players.empty?
   p No players 
 - else 
-  = render "players/list", players: @team.players
+  = render "team_players/list", team_players: @team.team_players
 
 - if logged_in? && is_logged_in_user?(@team.coordinator_id)
   p Add #{link_to "New Player", new_league_team_player_path(@team.league, @team)} or #{link_to "Existing Player", assign_league_team_players_path(@team.league, @team)}

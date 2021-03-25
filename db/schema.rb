@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_100512) do
+ActiveRecord::Schema.define(version: 2021_03_25_095721) do
+
+  create_table "games", force: :cascade do |t|
+    t.integer "league_id", null: false
+    t.datetime "date_and_time"
+    t.integer "local_team_id"
+    t.integer "local_score"
+    t.integer "away_team_id"
+    t.integer "away_score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["league_id"], name: "index_games_on_league_id"
+  end
 
   create_table "leagues", force: :cascade do |t|
     t.string "name"
@@ -59,6 +71,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_100512) do
     t.index ["player_id"], name: "index_users_on_player_id"
   end
 
+  add_foreign_key "games", "leagues"
   add_foreign_key "leagues", "users", column: "manager_id"
   add_foreign_key "teams", "leagues"
   add_foreign_key "teams", "users", column: "coordinator_id"

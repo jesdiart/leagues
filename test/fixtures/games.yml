@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_and_time: 2021-03-25 10:57:21
+  team: one
+  local_score: 1
+  team: one
+  away_score: 1
+  result: 1
+
+two:
+  date_and_time: 2021-03-25 10:57:21
+  team: two
+  local_score: 1
+  team: two
+  away_score: 1
+  result: 1

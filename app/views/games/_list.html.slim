@@ -1,0 +1,18 @@
+table border="1"
+  tr 
+    th colspan="2" Home 
+    th colspan="2" 
+    th colspan="2" Away
+  - games.each do |game|
+    tr 
+      td colspan="6" style="text-align: center;" = game.date_and_time 
+    tr 
+      td 
+        img src="#{game.local_team.icon}" alt="#{game.local_team}" width="80px" /
+      td = link_to game.local_team.name, [game.local_team.league, game.local_team]
+      td = game.local_score 
+      td = game.away_score
+      td = link_to game.away_team.name, [game.away_team.league, game.away_team]
+      td 
+        img src="#{game.away_team.icon}" alt="#{game.away_team}" width="80px" /
+    tr

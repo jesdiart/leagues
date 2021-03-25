@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         get 'assign', on: :collection
       end
     end
+    resources :games
   end 
 
   get 'login', to: 'sessions#new'

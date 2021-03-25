@@ -1,0 +1,24 @@
+= form_with model: [ @league, @game ] do |form|
+
+  div
+    = form.label :date_and_time 
+    br
+    = form.datetime_local_field :date_and_time
+    br  
+      - game.errors.full_messages_for(:name).each do |message| 
+        div = message 
+  
+  table
+    tr
+      th = form.label :local_team
+      th = form.label :local_score
+      th = form.label :away_score
+      th = form.label :away_team
+    tr  
+      td = collection_select :game, :local_team_id, @league.teams, :id, :name, prompt: true
+      td = form.number_field :local_score, min: 0
+      td = form.number_field :away_score, min: 0 
+      td = collection_select :game, :away_team_id, @league.teams, :id, :name, prompt: true
+  br  
+  div
+    = form.submit 

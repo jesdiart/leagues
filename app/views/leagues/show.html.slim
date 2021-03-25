@@ -4,17 +4,28 @@ h1 #{@league.name}
 p Welcome to the #{@league.name}. We love #{@league.sport}!
 p League manager: #{link_to @league.user.username, @league.user}
 
-h2 Teams 
-- if @league.teams.empty? 
-  p There are no teams in the league yet
-- else 
-  = render "teams/list", teams: @league.teams
-
-- if logged_in? && current_user.id == @league.manager_id  
-  p #{link_to "Add new Team", new_league_team_path(@league)}
-
 - if logged_in? && is_logged_in_user?(@league.manager_id)
   h2 Options
   ul 
     li = link_to "Edit", edit_league_path 
+
+div style="float:left; width:50%;"
+  h2 Teams 
+  - if @league.teams.empty? 
+    p There are no teams in the league yet
+  - else 
+    = render "teams/list", teams: @league.teams
+
+  - if logged_in? && current_user.id == @league.manager_id  
+    p #{link_to "Add new Team", new_league_team_path(@league)}
+
+div style="float:left; width:50%;"
+  h2 Games
+  - if @league.games.empty? 
+    p There are no games in the league yet
+  - else 
+    = render "games/list", games: @league.games
+
+  - if logged_in? && current_user.id == @league.manager_id  
+    p #{link_to "Add new Game", new_league_game_path(@league)}
 

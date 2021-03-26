@@ -27,6 +27,8 @@ class Game < ApplicationRecord
       local_team
     when -1
       away_team
+    else 
+      nil
     end
   end 
 
@@ -36,6 +38,8 @@ class Game < ApplicationRecord
       away_team
     when -1
       local_team
+    else 
+      nil
     end
   end
 

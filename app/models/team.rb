@@ -10,4 +10,19 @@ class Team < ApplicationRecord
   def games
     league.games.where(local_team_id: id).or(Game.where(away_team_id: id))
   end
+
+  def stats
+    stats = Hash.new {|h,k| h[k]=[]}
+    
+    games.each do |game|
+      if game.winner.nil?
+        stats["draws"] << game
+      elsif game.winner.id == id
+        stats["wins"] << game
+      elsif game.loser.id == id
+        stats["losses"] << game
+      end
+    end
+    stats
+  end 
 end

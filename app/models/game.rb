@@ -32,7 +32,7 @@ class Game < ApplicationRecord
     end
   end 
 
-  def looser
+  def loser
     case result
     when 1
       away_team

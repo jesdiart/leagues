@@ -21,3 +21,8 @@ h2 Players
   ul 
     li = link_to "Edit", edit_league_team_path
 
+h2 #{@team.league.name} - Games 
+- if @team.games.empty?
+  p No games
+- else 
+  = render "games/list", games: @team.games

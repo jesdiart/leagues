@@ -6,4 +6,8 @@ class Team < ApplicationRecord
 
   validates :name, presence: true
   validates :coordinator_id, presence: true
+
+  def games
+    league.games.where(local_team_id: id).or(Game.where(away_team_id: id))
+  end
 end

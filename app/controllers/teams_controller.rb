@@ -22,7 +22,7 @@ class TeamsController < ApplicationController
   end
 
   def update
-    @league = League.find(params[:id])
+    @league = League.find(params[:league_id])
     @team = Team.find(params[:id])
 
     if @team.update(team_params)

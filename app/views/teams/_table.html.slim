@@ -3,6 +3,7 @@ table border="1"
     tr
       th colspan="2"
       th Score 
+      th Games 
       th Wins 
       th Draws 
       th Losses 
@@ -11,6 +12,7 @@ table border="1"
         img src="#{team.icon}" alt="#{team.name}" width="60px" /
       td = link_to team.name, [team.league, team]
       td = team.stats["score"]
+      td = team.stats["wins"].length + team.stats["draws"].length + team.stats["losses"].length
       td = team.stats["wins"].length
       td = team.stats["draws"].length
       td = team.stats["losses"].length

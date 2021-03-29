@@ -1,11 +1,13 @@
 table border="1"
   tr
     th Score 
+    th Games 
     th Wins 
     th Draws 
     th Losses 
   tr
     td = stats["score"]
+    td = stats["wins"].length + stats["draws"].length + stats["losses"].length
     td = stats["wins"].length
     td = stats["draws"].length
     td = stats["losses"].length

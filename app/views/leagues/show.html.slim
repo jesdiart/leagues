@@ -14,7 +14,7 @@ div style="float:left; width:50%;"
   - if @league.teams.empty? 
     p There are no teams in the league yet
   - else 
-    = render "teams/list", teams: @league.teams
+    = render "teams/table", teams: @league.teams.sort_by { |team| team.stats["score"] }.reverse!
 
   - if logged_in? && current_user.id == @league.manager_id  
     p #{link_to "Add new Team", new_league_team_path(@league)}

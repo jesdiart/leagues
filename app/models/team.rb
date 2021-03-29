@@ -23,6 +23,7 @@ class Team < ApplicationRecord
         stats["losses"] << game
       end
     end
+    stats["score"] = (stats["wins"].length * 3) +  stats["draws"].length
     stats
   end 
 end

@@ -1,0 +1,16 @@
+table border="1"
+  - teams.each do |team|
+    tr
+      th colspan="2"
+      th Score 
+      th Wins 
+      th Draws 
+      th Losses 
+    tr
+      td 
+        img src="#{team.icon}" alt="#{team.name}" width="60px" /
+      td = link_to team.name, [team.league, team]
+      td = team.stats["score"]
+      td = team.stats["wins"].length
+      td = team.stats["draws"].length
+      td = team.stats["losses"].length

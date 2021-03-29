@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_095721) do
+ActiveRecord::Schema.define(version: 2021_03_29_101640) do
 
   create_table "games", force: :cascade do |t|
     t.integer "league_id", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_095721) do
     t.integer "away_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status"
     t.index ["league_id"], name: "index_games_on_league_id"
   end
 

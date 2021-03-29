@@ -6,6 +6,7 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find(params[:id])
+    @tournament = Tournament.new
   end
 
   def new

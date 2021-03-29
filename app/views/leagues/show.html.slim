@@ -9,7 +9,7 @@ p League manager: #{link_to @league.user.username, @league.user}
   ul 
     li = link_to "Edit", edit_league_path 
 
-div style="float:left; width:50%;"
+div style="float:left; width:34%;"
   h2 Teams 
   - if @league.teams.empty? 
     p There are no teams in the league yet
@@ -19,7 +19,7 @@ div style="float:left; width:50%;"
   - if logged_in? && current_user.id == @league.manager_id  
     p #{link_to "Add new Team", new_league_team_path(@league)}
 
-div style="float:left; width:50%;"
+div style="float:left; width:33%;"
   h2 Games
   - if @league.games.empty? 
     p There are no games in the league yet
@@ -28,4 +28,14 @@ div style="float:left; width:50%;"
 
   - if logged_in? && current_user.id == @league.manager_id  
     p #{link_to "Add new Game", new_league_game_path(@league)}
+
+div style="float:left; width:33%;"
+  h2 Tournaments
+  - if @league.tournaments.empty? 
+    p There are no tournaments in the league yet
+  - else 
+    = render "tournaments/list", tournaments: @league.tournaments
+
+  - if logged_in? && current_user.id == @league.manager_id  
+    = render "tournaments/form", tournament: @tournament
 
